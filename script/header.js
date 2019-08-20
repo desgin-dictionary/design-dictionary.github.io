@@ -39,14 +39,10 @@ window.addEventListener('load', () => {
             }
             
             headerCount++;
-        }, 5000);
+        }, 20000);
     });
 
     function showNextHeader(currentHeaderId, nextHeaderId) {
-
-        console.log(currentHeaderId);
-        console.log(nextHeaderId);
-
         let currentHeader = document.getElementById(currentHeaderId);
         let nextHeader = document.getElementById(nextHeaderId);
 
