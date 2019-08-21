@@ -7,7 +7,7 @@ window.addEventListener('load', () => {
         storageBucket: "",
         messagingSenderId: "553905655626",
         appId: "1:553905655626:web:e3e30ffe55bae628"
-        };
+    };
         
     firebase.initializeApp(firebaseConfig);
 
@@ -38,6 +38,6 @@ window.addEventListener('load', () => {
 
             newColor.appendChild(input);
             contentwrapper.appendChild(newColor);
-        }
+        }        
     });
 });
