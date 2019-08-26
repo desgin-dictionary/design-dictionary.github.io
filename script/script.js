@@ -11,6 +11,12 @@ window.addEventListener('load', () => {
         
     firebase.initializeApp(firebaseConfig);
 
+    firebase.database().ref('stats/visits').once('value').then((snapshot) => {
+        firebase.database().ref('stats/visits').set({
+            counter: snapshot.val().counter+1
+        });
+    });
+
     firebase.database().ref('colors').once('value').then((snapshot) => {
         const colors = snapshot.val();
 
@@ -34,6 +40,12 @@ window.addEventListener('load', () => {
                 setTimeout(() => {
                     newColor.classList.remove('animate');
                 }, 750);
+
+                firebase.database().ref('stats/copies').once('value').then((snapshot) => {
+                    firebase.database().ref('stats/copies').set({
+                        counter: snapshot.val().counter+1
+                    });
+                });
             });
 
             newColor.appendChild(input);
