@@ -8,12 +8,14 @@ window.addEventListener('load', () => {
         messagingSenderId: "553905655626",
         appId: "1:553905655626:web:e3e30ffe55bae628"
     };
+
+    activateLoading();
         
     firebase.initializeApp(firebaseConfig);
 
     firebase.database().ref('stats/visits').once('value').then((snapshot) => {
         firebase.database().ref('stats/visits').set({
-            counter: snapshot.val().counter+1
+            counter: snapshot.val().counter + 1
         });
     });
 
@@ -50,6 +52,19 @@ window.addEventListener('load', () => {
 
             newColor.appendChild(input);
             contentwrapper.appendChild(newColor);
-        }        
+        }
+        deActivateLoading();
     });
+
+    function activateLoading() {
+        const loader = document.getElementById('loader');
+    
+        loader.classList.remove('hide');
+      }
+    
+      function deActivateLoading() {
+        const loader = document.getElementById('loader');
+    
+        loader.classList.add('hide');
+      }
 });
