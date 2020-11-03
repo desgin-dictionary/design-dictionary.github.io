@@ -1,12 +1,12 @@
 window.addEventListener('load', () => {
     const firebaseConfig = {
-        apiKey: "AIzaSyAWWJuFcZUa3T--t48yIejsD2uDE6DIsJ8",
-        authDomain: "design-dictionary.firebaseapp.com",
-        databaseURL: "https://design-dictionary.firebaseio.com",
-        projectId: "design-dictionary",
-        storageBucket: "",
-        messagingSenderId: "553905655626",
-        appId: "1:553905655626:web:e3e30ffe55bae628"
+        apiKey: 'AIzaSyAWWJuFcZUa3T--t48yIejsD2uDE6DIsJ8',
+        authDomain: 'design-dictionary.firebaseapp.com',
+        databaseURL: 'https://design-dictionary.firebaseio.com',
+        projectId: 'design-dictionary',
+        storageBucket: '',
+        messagingSenderId: '553905655626',
+        appId: '1:553905655626:web:e3e30ffe55bae628'
     };
 
     activateLoading();
@@ -45,7 +45,7 @@ window.addEventListener('load', () => {
 
                 firebase.database().ref('stats/copies').once('value').then((snapshot) => {
                     firebase.database().ref('stats/copies').set({
-                        counter: snapshot.val().counter+1
+                        counter: snapshot.val().counter + 1
                     });
                 });
             });
@@ -53,18 +53,15 @@ window.addEventListener('load', () => {
             newColor.appendChild(input);
             contentwrapper.appendChild(newColor);
         }
+
         deActivateLoading();
     });
 
     function activateLoading() {
-        const loader = document.getElementById('loader');
+        document.getElementById('loader').classList.remove('hide');
+    }
     
-        loader.classList.remove('hide');
-      }
-    
-      function deActivateLoading() {
-        const loader = document.getElementById('loader');
-    
-        loader.classList.add('hide');
-      }
+    function deActivateLoading() {
+        document.getElementById('loader').classList.add('hide');
+    }
 });
